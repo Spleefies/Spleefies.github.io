@@ -1,76 +1,88 @@
 <!DOCTYPE html>
 <head>
-    <title>SpleefWeb Home Page</title>
-    <style>
-        div{
-            display: inline-block;
-        }
-        .button{
-            padding: 20px;
-            border: 3px solid black;
-            transition: border-color 0.1s ease;
-        }
-        .button:hover {
-            border-color: greenyellow;
-        }
-        body {background-color: #fff;}
-        .logo {float: right;}
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: black;
-                color: #fff;
-            }
-            a {color: #fff;               
-                text-decoration: none;
-            }
-        }
-    </style>
+	<title>SpleefWeb Home Page</title>
+	<style>
+		div{
+			display: inline-block;
+			text-align: center
+		}
+		.button{
+			border-radius: 16px;
+			padding: 20px;
+			border: 3px solid #fff;
+			transition: border-color 0.2s ease;
+		}
+		.button:hover {
+			border-color: green;
+		}
+		body {background-color: #fff;}
+		.logo {float: right;}
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color: #000;
+				color: #fff;
+			}
+			a {
+				color: #fff;               
+				text-decoration: none;
+			}
+			.button{
+				border-radius: 16px;
+				padding: 20px;
+				border: 3px solid #000;
+				transition: border-color 0.2s ease;
+			}
+			.button:hover {
+				border-color: #7CFC00;
+			}
+		}
+	</style>
 </head>
 <body>
-    <i class="fi fi-rr-folder-math"></i>
-    <picture class="logo">
-        <source srcset="Icons/llogo.svg" media="(prefers-color-scheme: light)">
-        <source srcset="Icons/dlogo.svg" media="(prefers-color-scheme: dark)">
-        <img src="Icons/dlogo.svg" style="height: 2em">
-    </picture>
-    <div class="button">
-        <a href="animation.html" style="font-size:2em">
-            <picture>
-                <source srcset="Icons/la.svg" media="(prefers-color-scheme: light)">
-                <source srcset="Icons/da.svg" media="(prefers-color-scheme: dark)">
-                <img src="Icons/da.svg" style="height: 8em">
-            </picture> <br>
-            Randomn animation
-        </a>
-    </div>
-    <div class="button">
-        <a href="bricks.html" style="font-size:2em">
-            <picture>
-                <source srcset="bricks/lb.png" media="(prefers-color-scheme: light)">
-                <source srcset="bricks/db.png" media="(prefers-color-scheme: dark)">
-                <img src="bricks/lb.png" style="height: 8em;image-rendering: pixelated">
-            </picture><br>
-            Bricks
-        </a>
-    </div>
-    <div class="button">
-        <a href="math.html" style="font-size:2em">
-            <picture>
-                <source srcset="Icons/lm.png" media="(prefers-color-scheme: light)">
-                <source srcset="Icons/dm.png" media="(prefers-color-scheme: dark)">
-                <img src="Icons/lm.png" style="height: 8em">
-            </picture><br>
-            Math quiz
-        </a>
-    </div>
-    <div class="button">
-        <a href="FacShop.html" style="font-size:2em">
-            <picture>
-                <source srcset="ShopStuff/lcart.png" media="(prefers-color-scheme: light)">
-                <source srcset="ShopStuff/dcart.png" media="(prefers-color-scheme: dark)">
-                <img src="ShopStuff/lcart.svg" style="height: 8em">
-            </picture><br>
-            Shop
-        </a>
-    </div>
+	<h1>Welcome to SpleefWeb!</h1>
+	<picture class="logo">
+		<source srcset="Icons/llogo.svg" media="(prefers-color-scheme: light)">
+		<source srcset="Icons/dlogo.svg" media="(prefers-color-scheme: dark)">
+		<img src="Icons/dlogo.svg" style="height: 2em">
+	</picture>
+	<div class="button">
+		<a href="animation.html" style="font-size:2em">
+			<picture>
+				<source srcset="Icons/la.svg" media="(prefers-color-scheme: light)">
+				<source srcset="Icons/da.svg" media="(prefers-color-scheme: dark)">
+				<img src="Icons/da.svg" style="height: 8em">
+			</picture> <br>
+			Randomn animation
+		</a>
+	</div>
+	<div class="button">
+		<a href="bricks.html" style="font-size:2em">
+			<picture>
+				<source srcset="bricks/lb.png" media="(prefers-color-scheme: light)">
+				<source srcset="bricks/db.png" media="(prefers-color-scheme: dark)">
+				<img src="bricks/lb.png" style="height: 8em;image-rendering: pixelated">
+			</picture><br>
+			Bricks
+		</a>
+	</div>
+	<div class="button">
+		<a href="math.html" style="font-size:2em">
+			<picture>
+				<source srcset="Icons/lm.svg" media="(prefers-color-scheme: light)">
+				<source srcset="Icons/dm.svg" media="(prefers-color-scheme: dark)">
+				<img src="Icons/lm.svg" style="height: 8em">
+			</picture><br>
+			Math quiz
+		</a>
+	</div>
+	<div class="button">
+		<a href="FacShop.html" style="font-size:2em">
+			<picture>
+				<source srcset="Icons/lcart.svg" media="(prefers-color-scheme: light)">
+				<source srcset="Icons/dcart.svg" media="(prefers-color-scheme: dark)">
+				<img src="Icons/lcart.svg" style="height: 8em">
+			</picture><br>
+			Shop
+		</a>
+	</div>
 </body>

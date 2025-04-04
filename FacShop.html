@@ -1,189 +1,192 @@
 <!DOCTYPE html>
-<style>
-    .item{
-        image-rendering: pixelated;
-        text-align: center
-    }
-    body {
-        background-color:#3d4b79;
-        color:#fff
-    }
-    th, td {
-        text-align: center;
-        vertical-align: middle
-    }
-    @media (prefers-color-scheme: dark) {
-        body {
-            background-color:#303a59
-        }
-    }
-    .logo {
-        float: left
-    }
-    .selectors {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 10px
-    }
-    div {
-        display: inline-block
-    }
-</style>
+<head>
+	<title>bloxd.io Factions Shop</title>
+	<style>
+		.item{
+			image-rendering: pixelated;
+			text-align: center
+		}
+		body {
+			background-color:#3d4b79;
+			color:#fff
+		}
+		th, td {
+			text-align: center;
+			vertical-align: middle
+		}
+		@media (prefers-color-scheme: dark) {
+			body {
+				background-color:#303a59
+			}
+		}
+		.logo {
+			float: left
+		}
+		.selectors {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-end;
+			gap: 10px
+		}
+		div {
+			display: inline-block
+		}
+	</style>
+</head>
 <body>
-    <br>
-    <div class="selectors">
-        <div class="selector">
-            <label><input type="radio" name="Location" value="M" checked> Market</label> <br>
-            <label><input type="radio" name="Location" value="A"> Airship</label>
-        </div>
-        <div class="selector">
-            <label><input type="radio" name="Type" value="b" checked> buy</label> <br>
-            <label><input type="radio" name="Type" value="s"> sell</label>
-        </div>
-    </div>
-    <form name="order" id="order">
-        <div class="item">
-            <img src="ShopStuff/coal.png" style="width:16em; height:16em;"><br>
-            Coal<br>
-            <span id="price_coal">4.25</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('coal', -1)">
-            <input type="number" id="coal" value="0" min="0" onchange="updateQuantity('coal', 0)">
-            <input type="button" value="+" onclick="updateQuantity('coal', 1)"><br>
-            <span class="total">Total: <span id="total_coal">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/iron_ingot.png" style="width:16em; height:16em;"><br>
-            Iron Bar<br>
-            <span id="price_iron">14.00</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('iron', -1)">
-            <input type="number" id="iron" value="0" min="0" onchange="updateQuantity('iron', 0)">
-            <input type="button" value="+" onclick="updateQuantity('iron', 1)"><br>
-            <span class="total">Total: <span id="total_iron">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/gold_ingot.png" style="width:16em; height:16em;"><br>
-            Gold Bar<br>
-            <span id="price_gold">50.00</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('gold', -1)">
-            <input type="number" id="gold" value="0" min="0" onchange="updateQuantity('gold', 0)">
-            <input type="button" value="+" onclick="updateQuantity('gold', 1)"><br>
-            <span class="total">Total: <span id="total_gold">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/dimstone.png" style="width:16em; height:16em;"><br>
-            Diamond / Moonstone<br>
-            <span id="price_dimstone">175.00</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('dimstone', -1)">
-            <input type="number" id="dimstone" value="0" min="0" onchange="updateQuantity('dimstone', 0)">
-            <input type="button" value="+" onclick="updateQuantity('dimstone', 1)"><br>
-            <span class="total">Total: <span id="total_dimstone">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/log.png" style="width:16em; height:16em;"><br>
-            Log<br>
-            <span id="price_log">2.23</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('log', -1)">
-            <input type="number" id="log" value="0" min="0" onchange="updateQuantity('log', 0)">
-            <input type="button" value="+" onclick="updateQuantity('log', 1)"><br>
-            <span class="total">Total: <span id="total_log">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/leaf.png" style="width:16em; height:16em;"><br>
-            Leaf<br>
-            <span id="price_leaf">0.28</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('leaf', -1)">
-            <input type="number" id="leaf" value="0" min="0" onchange="updateQuantity('leaf', 0)">
-            <input type="button" value="+" onclick="updateQuantity('leaf', 1)"><br>
-            <span class="total">Total: <span id="total_leaf">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/stone.png" style="width:16em; height:16em;"><br>
-            Stone<br>
-            <span id="price_stone">0.14</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('stone', -1)">
-            <input type="number" id="stone" value="0" min="0" onchange="updateQuantity('stone', 0)">
-            <input type="button" value="+" onclick="updateQuantity('stone', 1)"><br>
-            <span class="total">Total: <span id="total_stone">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/melon.png" style="width:16em; height:16em;"><br>
-            Melons / Pumpkins<br>
-            <span id="price_melon">2.80</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('melon', -1)">
-            <input type="number" id="melon" value="0" min="0" onchange="updateQuantity('melon', 0)">
-            <input type="button" value="+" onclick="updateQuantity('melon', 1)"><br>
-            <span class="total">Total: <span id="total_melon">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <div class="item">
-            <img src="ShopStuff/cotton.png" style="width:16em; height:16em;"><br>
-            Cotton<br>
-            <span id="price_cotton">0.56</span><span class="CoinPic"></span><br>
-            <input type="button" value="-" onclick="updateQuantity('cotton', -1)">
-            <input type="number" id="cotton" value="0" min="0" onchange="updateQuantity('cotton', 0)">
-            <input type="button" value="+" onclick="updateQuantity('cotton', 1)"><br>
-            <span class="total">Total: <span id="total_cotton">0</span>
-            <span class="CoinPic"></span>
-        </div>
-        <h1>
-            Total Value: <span id="order_total">0</span>
-            <img src="ShopStuff/gold_coin.png" style="width:30px; height:30px;" class="item">
-        </h1>
-    </form>
-    <script>
-        const CoinPic = '<img src="ShopStuff/gold_coin.png" style="width:20px; height:20px;" class="item">';
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll(".CoinPic").forEach(el => {
-                el.innerHTML = CoinPic
-            });
-        });
-        const pricing={
-            Mb:{coal:4.25,iron:14,gold:50,dimstone:175,log:2.22857142857,leaf:0.28,stone:0.14,melon:2.8,cotton:0.56},
-            Ms:{coal:1.75,iron:6,gold:50,dimstone:75,log:0.8,leaf:0.12,stone:0.06,melon:1.2,cotton:0.24},
-            Ab:{coal:3.75,iron:12,gold:50,dimstone:150,log:1.942857142857,leaf:0.35,stone:0.20,melon:3.20,cotton:0.48},
-            As:{coal:2.25,iron:8,gold:50,dimstone:100,log:1.0857142857,leaf:0.16,stone:0.08,melon:1.6,cotton:0.32}
-        }
-        function getSelectedLocationType() {
-            return document.querySelector('input[name="Location"]:checked').value + document.querySelector('input[name="Type"]:checked').value;
-        }
-        function updatePrices() {
-            const products = pricing[getSelectedLocationType()];
-            for (const product in products) {
-                document.getElementById(`price_${product}`).textContent = products[product].toFixed(2);
-                updateTotal(product)
-            }
-        }
-        function updateQuantity(product, change) {
-            const quantityInput = document.getElementById(product);
-            let currentQuantity = parseInt(quantityInput.value);
-            currentQuantity += change;
-            if (currentQuantity < 0) currentQuantity = 0;
-            quantityInput.value = currentQuantity;
-            updateTotal(product)
-        }
-        function updateTotal(product) {
-            const total = parseFloat(document.getElementById(`price_${product}`).textContent) * parseInt(document.getElementById(`${product}`).value);
-            document.getElementById(`total_${product}`).textContent = total.toFixed(2);
-            updateOrderTotal()
-        }
-        function updateOrderTotal() {
-            let orderTotal = 0;
-            document.querySelectorAll("[id^=total_]").forEach(totalElement => {
-                orderTotal += parseFloat(totalElement.textContent)
-            });
-            document.getElementById('order_total').textContent = orderTotal.toFixed(2);
-        }
-        document.querySelectorAll('input[type=radio]').forEach(radio => {
-            radio.addEventListener('change', updatePrices)
-        });
-        updatePrices()
-    </script>
+	<br>
+	<div class="selectors">
+		<div class="selector">
+			<label><input type="radio" name="Location" value="M" checked> Market</label> <br>
+			<label><input type="radio" name="Location" value="A"> Airship</label>
+		</div>
+		<div class="selector">
+			<label><input type="radio" name="Type" value="b" checked> buy</label> <br>
+			<label><input type="radio" name="Type" value="s"> sell</label>
+		</div>
+	</div>
+	<form name="order" id="order">
+		<div class="item">
+			<img src="ShopStuff/coal.png" style="width:16em; height:16em;"><br>
+			Coal<br>
+			<span id="price_coal">4.25</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('coal', -1)">
+			<input type="number" id="coal" value="0" min="0" onchange="updateQuantity('coal', 0)">
+			<input type="button" value="+" onclick="updateQuantity('coal', 1)"><br>
+			<span class="total">Total: <span id="total_coal">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/iron_ingot.png" style="width:16em; height:16em;"><br>
+			Iron Bar<br>
+			<span id="price_iron">14.00</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('iron', -1)">
+			<input type="number" id="iron" value="0" min="0" onchange="updateQuantity('iron', 0)">
+			<input type="button" value="+" onclick="updateQuantity('iron', 1)"><br>
+			<span class="total">Total: <span id="total_iron">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/gold_ingot.png" style="width:16em; height:16em;"><br>
+			Gold Bar<br>
+			<span id="price_gold">50.00</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('gold', -1)">
+			<input type="number" id="gold" value="0" min="0" onchange="updateQuantity('gold', 0)">
+			<input type="button" value="+" onclick="updateQuantity('gold', 1)"><br>
+			<span class="total">Total: <span id="total_gold">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/dimstone.png" style="width:16em; height:16em;"><br>
+			Diamond / Moonstone<br>
+			<span id="price_dimstone">175.00</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('dimstone', -1)">
+			<input type="number" id="dimstone" value="0" min="0" onchange="updateQuantity('dimstone', 0)">
+			<input type="button" value="+" onclick="updateQuantity('dimstone', 1)"><br>
+			<span class="total">Total: <span id="total_dimstone">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/log.png" style="width:16em; height:16em;"><br>
+			Log<br>
+			<span id="price_log">2.23</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('log', -1)">
+			<input type="number" id="log" value="0" min="0" onchange="updateQuantity('log', 0)">
+			<input type="button" value="+" onclick="updateQuantity('log', 1)"><br>
+			<span class="total">Total: <span id="total_log">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/leaf.png" style="width:16em; height:16em;"><br>
+			Leaf<br>
+			<span id="price_leaf">0.28</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('leaf', -1)">
+			<input type="number" id="leaf" value="0" min="0" onchange="updateQuantity('leaf', 0)">
+			<input type="button" value="+" onclick="updateQuantity('leaf', 1)"><br>
+			<span class="total">Total: <span id="total_leaf">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/stone.png" style="width:16em; height:16em;"><br>
+			Stone<br>
+			<span id="price_stone">0.14</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('stone', -1)">
+			<input type="number" id="stone" value="0" min="0" onchange="updateQuantity('stone', 0)">
+			<input type="button" value="+" onclick="updateQuantity('stone', 1)"><br>
+			<span class="total">Total: <span id="total_stone">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/melon.png" style="width:16em; height:16em;"><br>
+			Melons / Pumpkins<br>
+			<span id="price_melon">2.80</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('melon', -1)">
+			<input type="number" id="melon" value="0" min="0" onchange="updateQuantity('melon', 0)">
+			<input type="button" value="+" onclick="updateQuantity('melon', 1)"><br>
+			<span class="total">Total: <span id="total_melon">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<div class="item">
+			<img src="ShopStuff/cotton.png" style="width:16em; height:16em;"><br>
+			Cotton<br>
+			<span id="price_cotton">0.56</span><span class="CoinPic"></span><br>
+			<input type="button" value="-" onclick="updateQuantity('cotton', -1)">
+			<input type="number" id="cotton" value="0" min="0" onchange="updateQuantity('cotton', 0)">
+			<input type="button" value="+" onclick="updateQuantity('cotton', 1)"><br>
+			<span class="total">Total: <span id="total_cotton">0</span>
+			<span class="CoinPic"></span>
+		</div>
+		<h1>
+			Total Value: <span id="order_total">0</span>
+			<img src="ShopStuff/gold_coin.png" style="width:30px; height:30px;" class="item">
+		</h1>
+	</form>
+	<script>
+		const CoinPic = '<img src="ShopStuff/gold_coin.png" style="width:20px; height:20px;" class="item">';
+		document.addEventListener("DOMContentLoaded", function() {
+			document.querySelectorAll(".CoinPic").forEach(el => {
+				el.innerHTML = CoinPic
+			});
+		});
+		const pricing={
+			Mb:{coal:4.25,iron:14,gold:50,dimstone:175,log:2.22857142857,leaf:0.28,stone:0.14,melon:2.8,cotton:0.56},
+			Ms:{coal:1.75,iron:6,gold:50,dimstone:75,log:0.8,leaf:0.12,stone:0.06,melon:1.2,cotton:0.24},
+			Ab:{coal:3.75,iron:12,gold:50,dimstone:150,log:1.942857142857,leaf:0.35,stone:0.20,melon:3.20,cotton:0.48},
+			As:{coal:2.25,iron:8,gold:50,dimstone:100,log:1.0857142857,leaf:0.16,stone:0.08,melon:1.6,cotton:0.32}
+		}
+		function getSelectedLocationType() {
+			return document.querySelector('input[name="Location"]:checked').value + document.querySelector('input[name="Type"]:checked').value;
+		}
+		function updatePrices() {
+			const products = pricing[getSelectedLocationType()];
+			for (const product in products) {
+				document.getElementById(`price_${product}`).textContent = products[product].toFixed(2);
+				updateTotal(product)
+			}
+		}
+		function updateQuantity(product, change) {
+			const quantityInput = document.getElementById(product);
+			let currentQuantity = parseInt(quantityInput.value);
+			currentQuantity += change;
+			if (currentQuantity < 0) currentQuantity = 0;
+			quantityInput.value = currentQuantity;
+			updateTotal(product)
+		}
+		function updateTotal(product) {
+			const total = parseFloat(document.getElementById(`price_${product}`).textContent) * parseInt(document.getElementById(`${product}`).value);
+			document.getElementById(`total_${product}`).textContent = total.toFixed(2);
+			updateOrderTotal()
+		}
+		function updateOrderTotal() {
+			let orderTotal = 0;
+			document.querySelectorAll("[id^=total_]").forEach(totalElement => {
+				orderTotal += parseFloat(totalElement.textContent)
+			});
+			document.getElementById('order_total').textContent = orderTotal.toFixed(2);
+		}
+		document.querySelectorAll('input[type=radio]').forEach(radio => {
+			radio.addEventListener('change', updatePrices)
+		});
+		updatePrices()
+	</script>
 </body>
