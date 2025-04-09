@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+    div{
+        display: inline-block;
+        text-align: center
+    }
+    .button{
+        border-radius: 16px;
+        padding: 20px;
+        border: 3px solid #fff;
+        transition: border-color 0.2s ease;
+    }
+    .button:hover {
+        border-color: green;
+    }
+    body {background-color: #fff;}
+    .logo {float: right;}
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        a {
+            color: #fff;               
+            text-decoration: none;
+        }
+        .button{
+            border-radius: 16px;
+            padding: 20px;
+            border: 3px solid #000;
+            transition: border-color 0.2s ease;
+        }
+        .button:hover {
+            border-color: #7CFC00;
+        }
+    }
+</style>
+<body>
+    <iframe src="https://www.desmos.com/calculator/1j9q2vjj7s" name="DesFrame" style="height:40em;width:100%;"></iframe>
+    <br>
+    <div class="button">
+        <a href="https://www.desmos.com/calculator/1j9q2vjj7s" target="DesFrame" style="font-size:2em">
+            <img src="Icons/TrigJump.svg" style="height: 7em"><br>
+            Trigonometry Jump
+        </a>
+    </div>
+    <div class="button">
+        <a href="https://www.desmos.com/calculator/clngekqp7d" target="DesFrame" style="font-size:2em">
+            <img src="Icons/TrigJump.svg" style="height: 7em"><br>
+            Algebra Swing
+        </a>
+    </div>
+    <div class="button">
+        <a href="https://www.desmos.com/calculator/zjvkgxy9id" target="DesFrame" style="font-size:2em">
+            <img src="Icons/TrigJump.svg" style="height: 7em"><br>
+            Flap (WIP)
+        </a>
+    </div>
+</body>

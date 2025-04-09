@@ -1,9 +1,9 @@
-body {background-color: white;}
+body {background-color: #fff;}
 .logo {float: right;}
 @media (prefers-color-scheme: dark) {
     body {
         background-color: black;
-        color: white;
+        color: #fff;
     }
-    a {color: cyan;}
+    a {color: #fff;}
 }
