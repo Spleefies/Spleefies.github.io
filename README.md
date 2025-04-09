@@ -1,2 +1,2 @@
 this is my website yay
-https://Spleefies.github.io/SpleefWeb
+https://Spleefies.github.io
